@@ -1,0 +1,183 @@
+body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: rgb(44, 40, 40);
+    margin: 0;
+}
+
+.start-screen {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    opacity: 0; /* Empieza invisible */
+    animation: fadeIn 1s forwards;
+}
+
+h1 {
+    margin-bottom: 20px;
+    color: antiquewhite;
+}
+
+#status {
+    margin-top: 10px;
+    color: aliceblue;
+    background-color: black;
+    padding: 5px;
+    position: relative;
+}
+
+#setup-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.form-group {
+    margin-bottom: 15px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+label {
+    margin-bottom: 5px;
+}
+label[for="player-o-name"] {
+    color: red; /* Cambia el color del texto de la etiqueta a rojo */
+}
+label[for="player-x-name"]{
+color: #007bff;
+}
+label[for="rounds"]{
+    color: aliceblue;
+}
+
+
+
+input[type="text"],
+input[type="number"] {
+    padding: 10px;
+    font-size: 16px;
+    width: 200px;
+    border: 2px solid #ccc;
+    border-radius: 5px;
+    transition: border-color 0.3s, box-shadow 0.2s; /* Transiciones suaves */
+}
+input[type="text"]:focus,
+input[type="number"]:focus {
+    border-color: #007bff;
+    box-shadow: 0 0 8px rgba(0, 123, 255, 0.5); /* Sombra alrededor del campo en enfoque */
+}
+button {
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    transition: background-color 0.3s, transform 0.2s; /* Transiciones para efectos suaves */
+
+}
+button:hover {
+    background-color: #0056b3;
+    transform: scale(1.05); /* Aumenta ligeramente el tamaño del botón */
+
+}
+button:active {
+    transform: scale(0.95); /* Disminuye el tamaño del botón cuando se hace clic */
+}
+
+
+.game-container {
+    text-align: center;
+    position: relative;
+    padding-bottom: 100px; /* Espacio para el footer */
+}
+
+
+#game-board {
+    display: grid;
+    grid-template-columns: repeat(3, 100px);
+    grid-template-rows: repeat(3, 100px);
+    gap: 5px;
+    margin: 0 auto;
+}
+
+.cell {
+    width: 100px;
+    height: 100px;
+    background-color: #fff;
+    border: 2px solid #000;
+    font-size: 2em;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: background-color 0.3s, box-shadow 0.2s; /* Transiciones suaves */
+
+}
+
+.cell:hover {
+    background-color: #f9f9f9;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); /* Sombra alrededor de la celda */
+
+}
+.cell.taken {
+    transition: background-color 0.3s; /* Transición cuando la celda se llena */
+}
+
+#status {
+    margin-top: 10px;
+    color: aliceblue;
+    background-color: black;
+    padding: 5px;
+    position: relative;
+}
+
+#win-message {
+    display: none;
+    /* Oculta el span por defecto */
+    color: green;
+    /* Color verde para el mensaje de victoria */
+    font-weight: bold;
+    margin-left: 10px;
+    animation: fadeIn 1s; /* Animación de desvanecimiento */
+
+}
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+#footer {
+    margin-top: 20px;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    background-color: #f8f9fa;
+    padding: 10px 0;
+    border-top: 1px solid #dee2e6;
+}
+
+#round-history {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+#round-history li {
+    margin: 5px 0;
+}
+
+#reset-btn {
+    margin-top: 10px;
+}
